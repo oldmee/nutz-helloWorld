@@ -51,6 +51,60 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-core -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>2.1.5</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl -->
+        <dependency>
+            <groupId>javax.servlet.jsp.jstl</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>javax.mail-api</artifactId>
+            <version>1.5.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/nl.captcha/simplecaptcha -->
+        <dependency>
+            <groupId>nl.captcha</groupId>
+            <artifactId>simplecaptcha</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.nutz/nutz-integration-quartz -->
+        <dependency>
+            <groupId>org.nutz</groupId>
+            <artifactId>nutz-integration-quartz</artifactId>
+            <version>1.r.63.r3</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.nutz/nutz-integration-shiro -->
+        <dependency>
+            <groupId>org.nutz</groupId>
+            <artifactId>nutz-integration-shiro</artifactId>
+            <version>1.r.63.r3</version>
+        </dependency>
+
     </dependencies>
 
     <build>

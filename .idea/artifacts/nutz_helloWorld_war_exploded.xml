@@ -1,0 +1,36 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="nutz-helloWorld:war exploded">
+    <output-path>$PROJECT_DIR$/target/nutz-helloWorld-1.0-SNAPSHOT</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="nutz-helloWorld" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.nutz:nutz:1.r.60" />
+          <element id="library" level="project" name="Maven: com.alibaba:druid:1.0.26" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.13" />
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.6.1" />
+          <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:3.1.0" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-core:1.2.0" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.6.4" />
+          <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.8.3" />
+          <element id="library" level="project" name="Maven: org.quartz-scheduler:quartz:2.1.5" />
+          <element id="library" level="project" name="Maven: c3p0:c3p0:0.9.1.1" />
+          <element id="library" level="project" name="Maven: javax.servlet.jsp.jstl:jstl:unknown" />
+          <element id="library" level="project" name="Maven: javax.mail:javax.mail-api:1.5.0" />
+          <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
+          <element id="library" level="project" name="Maven: nl.captcha:simplecaptcha:unknown" />
+          <element id="library" level="project" name="Maven: org.nutz:nutz-integration-quartz:1.r.63.r3" />
+          <element id="library" level="project" name="Maven: org.nutz:nutz-integration-shiro:1.r.63.r3" />
+          <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.25" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/nutz-helloWorld-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="nutz-helloWorld/web/Web" />
+    </root>
+  </artifact>
+</component>
