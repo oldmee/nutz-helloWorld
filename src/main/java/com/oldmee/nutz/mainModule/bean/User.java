@@ -1,11 +1,6 @@
 package com.oldmee.nutz.mainModule.bean;
 
-import org.nutz.dao.entity.annotation.Column;
-import org.nutz.dao.entity.annotation.Id;
-import org.nutz.dao.entity.annotation.Name;
-import org.nutz.dao.entity.annotation.Table;
-
-import java.util.Date;
+import org.nutz.dao.entity.annotation.*;
 
 /**
  * @Author: R.oldmee
@@ -13,7 +8,7 @@ import java.util.Date;
  * @Date: Create in 12:40 2019/1/19
  */
 @Table("t_user")
-public class User {
+public class User extends BasePojo {
 
     @Id
     private int id;
@@ -24,10 +19,8 @@ public class User {
     private String password;
     @Column
     private String salt;
-    @Column("ct")
-    private Date createTime;
-    @Column("ut")
-    private Date updateTime;
+    @One(target = UserProfile.class, field = "id", key = "userId")
+    protected UserProfile profile;
 
     public int getId() {
         return id;
@@ -61,19 +54,11 @@ public class User {
         this.salt = salt;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public UserProfile getProfile() {
+        return profile;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+    public void setProfile(UserProfile profile) {
+        this.profile = profile;
     }
 }

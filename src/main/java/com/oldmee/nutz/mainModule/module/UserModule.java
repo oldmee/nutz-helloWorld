@@ -1,23 +1,19 @@
 package com.oldmee.nutz.mainModule.module;
 
 import com.oldmee.nutz.mainModule.bean.User;
+import com.oldmee.nutz.mainModule.bean.UserProfile;
+import org.nutz.aop.interceptor.ioc.TransAop;
 import org.nutz.dao.Cnd;
-import org.nutz.dao.Dao;
 import org.nutz.dao.QueryResult;
 import org.nutz.dao.pager.Pager;
-import org.nutz.http.Http;
-import org.nutz.ioc.loader.annotation.Inject;
+import org.nutz.ioc.aop.Aop;
 import org.nutz.ioc.loader.annotation.IocBean;
-import org.nutz.lang.Dumps;
 import org.nutz.lang.Strings;
 import org.nutz.lang.util.NutMap;
-import org.nutz.mvc.adaptor.JsonAdaptor;
 import org.nutz.mvc.annotation.*;
 import org.nutz.mvc.filter.CheckSession;
-
 import javax.servlet.http.HttpSession;
 import java.util.Date;
-import java.util.Observable;
 
 /**
  * @Author: R.oldmee
@@ -29,10 +25,7 @@ import java.util.Observable;
 @Ok("json:{locked:'password|salt',ignoreNull:true}") // 忽略password和salt属性,忽略空属性的json输出
 @Fail("http:500") // 抛出异常的话,就走500页面
 @Filters(@By(type=CheckSession.class, args={"me", "/"})) // 检查当前Session是否带me这个属性
-public class UserModule {
-
-    @Inject // 注入同名的一个ioc对象
-    protected Dao dao;
+public class UserModule extends BaseModule {
 
     @At
     public int count() { // 统计用户数的方法,算是个测试点
@@ -83,11 +76,13 @@ public class UserModule {
     }
 
     @At
+    @Aop(TransAop.READ_COMMITTED)
     public Object delete(@Param("id")int id, @Attr("me")int me) {
         if (me == id) {
             return new NutMap().setv("ok", false).setv("msg", "不能删除当前用户!!");
         }
         dao.delete(User.class, id); // 再严谨一些的话,需要判断是否为>0
+        dao.clear(UserProfile.class, Cnd.where("userId", "=", me));
         return new NutMap().setv("ok", true);
     }
 
