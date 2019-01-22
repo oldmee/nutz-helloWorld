@@ -1,6 +1,7 @@
 package com.oldmee.nutz.mainModule;
 
 import com.oldmee.nutz.mainModule.bean.User;
+import org.apache.commons.mail.HtmlEmail;
 import org.nutz.dao.Dao;
 import org.nutz.dao.util.Daos;
 import org.nutz.integration.quartz.NutQuartzCronJobFactory;
@@ -35,6 +36,19 @@ public class MainSetup implements Setup {
         }
         // 获取NutQuartzCronJobFactory从而触发计划任务的初始化与启动
         ioc.get(NutQuartzCronJobFactory.class);
+
+        // 测试发送邮件
+        try {
+            HtmlEmail email = ioc.get(HtmlEmail.class);
+            email.setSubject("测试NutzBook");
+            email.setMsg("This is a test mail ... :-)" + System.currentTimeMillis());
+            email.addTo("280468014@qq.com");//请务必改成您自己的邮箱啊!!!
+            email.buildMimeMessage();
+            email.sendMimeMessage();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void destroy(NutConfig nc) {

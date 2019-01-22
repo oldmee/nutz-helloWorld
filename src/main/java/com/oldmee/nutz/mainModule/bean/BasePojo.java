@@ -1,5 +1,6 @@
 package com.oldmee.nutz.mainModule.bean;
 
+import java.util.ArrayList;
 import java.util.Date;
 import org.nutz.dao.entity.annotation.Column;
 import org.nutz.json.Json;
