@@ -57,6 +57,8 @@ public class UserModule extends BaseModule {
         if (msg != null){
             return re.setv("ok", false).setv("msg", msg);
         }
+        user.setCreateTime(new Date());
+        user.setUpdateTime(new Date());
         user = dao.insert(user);
         return re.setv("ok", true).setv("data", user);
     }
