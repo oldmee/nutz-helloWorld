@@ -1,7 +1,6 @@
 package com.oldmee.nutz.mainModule;
 
 import com.oldmee.nutz.mainModule.bean.User;
-import org.apache.commons.mail.HtmlEmail;
 import org.nutz.dao.Dao;
 import org.nutz.dao.util.Daos;
 import org.nutz.integration.quartz.NutQuartzCronJobFactory;

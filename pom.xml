@@ -130,7 +130,11 @@
             <artifactId>nutz-integration-shiro</artifactId>
             <version>1.r.60.r2</version>
         </dependency>
-
+        <dependency>
+            <groupId>cn.apiclub.tool</groupId>
+            <artifactId>simplecaptcha</artifactId>
+            <version>1.2.2</version>
+        </dependency>
     </dependencies>
 
     <build>
