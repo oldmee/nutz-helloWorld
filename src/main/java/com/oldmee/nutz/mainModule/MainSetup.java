@@ -1,6 +1,7 @@
 package com.oldmee.nutz.mainModule;
 
 import com.oldmee.nutz.mainModule.bean.User;
+import com.oldmee.nutz.mainModule.service.UserService;
 import org.nutz.dao.Dao;
 import org.nutz.dao.util.Daos;
 import org.nutz.integration.quartz.NutQuartzCronJobFactory;
@@ -24,14 +25,12 @@ public class MainSetup implements Setup {
         // 如果没有createTablesInPackage,请检查nutz版本
         Daos.createTablesInPackage(dao, "com.oldmee.nutz.mainModule", false);
 
+        Daos.migration(dao, User.class, true, false, false);
+
         // 初始化默认根用户
         if (dao.count(User.class) == 0) {
-            User user = new User();
-            user.setName("admin");
-            user.setPassword("123456");
-            user.setCreateTime(new Date());
-            user.setUpdateTime(new Date());
-            dao.insert(user);
+            UserService us = ioc.get(UserService.class);
+            us.add("admin", "123456");
         }
         // 获取NutQuartzCronJobFactory从而触发计划任务的初始化与启动
         ioc.get(NutQuartzCronJobFactory.class);

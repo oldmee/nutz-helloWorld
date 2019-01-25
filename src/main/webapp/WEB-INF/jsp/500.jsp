@@ -3,6 +3,7 @@
 <%@page import="java.io.ByteArrayOutputStream"%>
 <%@page import="java.io.PrintWriter"%>
 <%@page import="org.nutz.mvc.Mvcs"%>
+<%@ page import="java1.lang1.Object" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" isErrorPage="true" trimDirectiveWhitespaces="true"
          session="false"%>

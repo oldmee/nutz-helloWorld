@@ -1,5 +1,6 @@
 package com.oldmee.nutz.mainModule;
 
+import org.nutz.integration.shiro.ShiroSessionProvider;
 import org.nutz.mvc.annotation.*;
 import org.nutz.mvc.ioc.provider.ComboIocProvider;
 
@@ -20,6 +21,7 @@ import org.nutz.mvc.ioc.provider.ComboIocProvider;
 @Fail("jsp:jsp.500")
 @ChainBy(args="mvc/nutzbook-mvc-chain.js")
 @Localization(value="msg/", defaultLocalizationKey="zh-CN")
+@SessionBy(ShiroSessionProvider.class)
 public class MainModule {
 
 }
